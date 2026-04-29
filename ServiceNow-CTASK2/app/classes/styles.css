@@ -1,0 +1,180 @@
+/* ===== 전체 레이아웃 ===== */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Segoe UI", "맑은 고딕", sans-serif;
+}
+
+/* ===== 헤더 ===== */
+.header {
+    -fx-background-color: white;
+    -fx-padding: 16 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+
+.header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2c3e50;
+}
+
+/* ===== 섹션 ===== */
+.section {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-padding: 18;
+    -fx-spacing: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 2);
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #34495e;
+}
+
+/* ===== 입력 필드 ===== */
+.text-field, .text-area {
+    -fx-background-color: white;
+    -fx-border-color: #dce0e6;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2c3e50;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #5b8def;
+    -fx-effect: dropshadow(gaussian, rgba(91,141,239,0.25), 4, 0, 0, 0);
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #4a5568;
+}
+
+/* ===== 버튼 ===== */
+.button {
+    -fx-background-color: white;
+    -fx-border-color: #dce0e6;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 14;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #4a5568;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #f7f9fc;
+    -fx-border-color: #5b8def;
+}
+
+.primary-button {
+    -fx-background-color: linear-gradient(to bottom, #5b8def 0%, #4a7cd6 100%);
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 28;
+    -fx-effect: dropshadow(gaussian, rgba(91,141,239,0.3), 8, 0, 0, 2);
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #4a7cd6 0%, #3968c4 100%);
+}
+
+.primary-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #3968c4 0%, #2d5bb3 100%);
+}
+
+/* ===== 체크박스 ===== */
+.check-box {
+    -fx-font-size: 13px;
+    -fx-text-fill: #2c3e50;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e0;
+    -fx-border-width: 2;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #5b8def;
+    -fx-border-color: #5b8def;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.checkbox-container {
+    -fx-spacing: 12;
+    -fx-padding: 6 0;
+}
+
+/* ===== 정보 박스 ===== */
+.info-box {
+    -fx-background-color: #e8f0fe;
+    -fx-background-radius: 6;
+    -fx-padding: 10 14;
+    -fx-border-color: #c5dbf7;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+}
+
+.info-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #1e4d8b;
+}
+
+/* ===== 로그 영역 ===== */
+.log-area {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: #d4d4d4;
+    -fx-font-family: "Consolas", "Monaco", monospace;
+    -fx-font-size: 12px;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 10;
+}
+
+.log-area .content {
+    -fx-background-color: #1e1e1e;
+}
+
+.log-area .scroll-pane {
+    -fx-background-color: #1e1e1e;
+}
+
+.log-area .scroll-pane .viewport {
+    -fx-background-color: #1e1e1e;
+}
+
+/* ===== 스크롤바 스타일 ===== */
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #cbd5e0;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #f7f9fc;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #cbd5e0;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar:horizontal .track {
+    -fx-background-color: #f7f9fc;
+    -fx-background-radius: 4;
+}

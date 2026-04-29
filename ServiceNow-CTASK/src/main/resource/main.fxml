@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.servicenow.ctaskcreator.controller.MainController"
+      stylesheets="@styles.css"
+      styleClass="root"
+      prefWidth="850" prefHeight="820"
+      spacing="0">
+
+    <!-- Header -->
+    <HBox styleClass="header" alignment="CENTER_LEFT">
+        <Label text="ServiceNow Task Creator" styleClass="header-title"/>
+    </HBox>
+
+    <!-- Main Content -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: #f5f7fa; -fx-border-color: transparent;">
+        <padding>
+            <Insets top="14" right="14" bottom="14" left="14"/>
+        </padding>
+
+        <VBox spacing="14">
+
+            <!-- 1. Excel File Settings (Optional) -->
+            <VBox styleClass="section" spacing="10">
+                <Label text="1. Excel File Settings (Optional)" styleClass="section-title"/>
+
+                <VBox spacing="6">
+                    <Label text="Excel File" styleClass="field-label"/>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtExcelPath"
+                                   promptText="Select Excel file..."
+                                   editable="false"
+                                   HBox.hgrow="ALWAYS"
+                                   prefHeight="32"/>
+                        <Button text="Browse" onAction="#onSelectExcel"
+                                prefHeight="32" prefWidth="100"/>
+                    </HBox>
+                </VBox>
+
+                <VBox styleClass="info-box" spacing="3">
+                    <Label text="• Reads effort data from Effort Estimation sheet" styleClass="info-text"/>
+                    <Label text="• If no Excel file selected, effort will be set to 0" styleClass="info-text"/>
+                </VBox>
+            </VBox>
+
+            <!-- 2. Task Creation -->
+            <VBox styleClass="section" spacing="10">
+                <Label text="2. Task Creation" styleClass="section-title"/>
+
+                <VBox spacing="10">
+                    <VBox spacing="6">
+                        <Label text="CR Number" styleClass="field-label"/>
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <TextField fx:id="txtCrNumber"
+                                       promptText="CR0020778"
+                                       HBox.hgrow="ALWAYS"
+                                       prefHeight="32"/>
+                            <Button text="Fetch" onAction="#onFetchCR"
+                                    prefHeight="32" prefWidth="100"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Detailed Description" styleClass="field-label"/>
+                        <TextArea fx:id="txtDetailedDescription"
+                                  promptText="CR's Detailed Description will be displayed here"
+                                  wrapText="true"
+                                  prefHeight="80"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Assignment Group" styleClass="field-label"/>
+                        <TextField fx:id="txtAssignmentGroup"
+                                   promptText="OPUS-OCPS"
+                                   prefHeight="32"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Assigned Person" styleClass="field-label"/>
+                        <TextField fx:id="txtAssignedPerson"
+                                   promptText="Ji-Won SEO"
+                                   prefHeight="32"/>
+                    </VBox>
+                </VBox>
+
+                <VBox spacing="10">
+                    <Label text="Select Tasks to Create" styleClass="field-label"/>
+                    <HBox styleClass="checkbox-container" spacing="22">
+                        <CheckBox fx:id="chkAnalysis" text="Analysis" selected="true"/>
+                        <CheckBox fx:id="chkDesign" text="Design" selected="true"/>
+                        <CheckBox fx:id="chkDevelopment" text="Development" selected="true"/>
+                        <CheckBox fx:id="chkTest" text="TEST" selected="true"/>
+                        <CheckBox fx:id="chkTAS" text="TAS" selected="true"/>
+                        <CheckBox fx:id="chkDocumentation" text="Documentation" selected="true"/>
+                        <CheckBox fx:id="chkDeployment" text="Deployment" selected="true"/>
+                    </HBox>
+                </VBox>
+
+                <HBox alignment="CENTER" style="-fx-padding: 8 0 0 0;">
+                    <Button text="Create Tasks" onAction="#onCreateTasks"
+                            styleClass="primary-button"
+                            prefWidth="150" prefHeight="38"/>
+                </HBox>
+            </VBox>
+
+            <!-- 3. Execution Log -->
+            <VBox styleClass="section" spacing="10" VBox.vgrow="ALWAYS">
+                <Label text="Execution Log" styleClass="section-title"/>
+                <TextArea fx:id="txtLog" editable="false" wrapText="true"
+                          styleClass="log-area"
+                          prefHeight="120"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.servicenow.ctaskcreator.controller.MainController"
+      stylesheets="@styles.css"
+      styleClass="root"
+      prefWidth="850" prefHeight="820"
+      spacing="0">
+
+    <!-- 헤더 -->
+    <HBox styleClass="header" alignment="CENTER_LEFT">
+        <Label text="ServiceNow Task Creator" styleClass="header-title"/>
+    </HBox>
+
+    <!-- 메인 컨텐츠 -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: #f5f7fa; -fx-border-color: transparent;">
+        <padding>
+            <Insets top="14" right="14" bottom="14" left="14"/>
+        </padding>
+
+        <VBox spacing="14">
+
+            <!-- 1. Excel 파일 설정 (선택사항) -->
+            <VBox styleClass="section" spacing="10">
+                <Label text="1. Excel 파일 설정 (선택사항)" styleClass="section-title"/>
+
+                <VBox spacing="6">
+                    <Label text="Excel 파일" styleClass="field-label"/>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtExcelPath"
+                                   promptText="Excel 파일을 선택하세요..."
+                                   editable="false"
+                                   HBox.hgrow="ALWAYS"
+                                   prefHeight="32"/>
+                        <Button text="파일 선택" onAction="#onSelectExcel"
+                                prefHeight="32" prefWidth="100"/>
+                    </HBox>
+                </VBox>
+
+                <VBox styleClass="info-box" spacing="3">
+                    <Label text="• Effort Estimation 시트에서 공수 데이터를 읽습니다" styleClass="info-text"/>
+                    <Label text="• Excel 파일을 선택하지 않으면 공수 0으로 Task 생성" styleClass="info-text"/>
+                </VBox>
+            </VBox>
+
+            <!-- 2. Task 생성 -->
+            <!-- 2. Task 생성 -->
+            <VBox styleClass="section" spacing="10">
+                <Label text="2. Task 생성" styleClass="section-title"/>
+
+                <VBox spacing="10">
+                    <VBox spacing="6">
+                        <Label text="CR 번호" styleClass="field-label"/>
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <TextField fx:id="txtCrNumber"
+                                       promptText="CR0020778"
+                                       HBox.hgrow="ALWAYS"
+                                       prefHeight="32"/>
+                            <Button text="가져오기" onAction="#onFetchCR"
+                                    prefHeight="32" prefWidth="100"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Detailed Description" styleClass="field-label"/>
+                        <TextArea fx:id="txtDetailedDescription"
+                                  promptText="CR의 Detailed Description이 표시됩니다"
+                                  wrapText="true"
+                                  prefHeight="80"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Assignment Group" styleClass="field-label"/>
+                        <TextField fx:id="txtAssignmentGroup"
+                                   promptText="OPUS-OCPS"
+                                   prefHeight="32"/>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label text="Assigned Person" styleClass="field-label"/>
+                        <TextField fx:id="txtAssignedPerson"
+                                   promptText="Ji-Won SEO"
+                                   prefHeight="32"/>
+                    </VBox>
+                </VBox>
+
+                <VBox spacing="10">
+                    <Label text="생성할 Task 선택" styleClass="field-label"/>
+                    <HBox styleClass="checkbox-container" spacing="22">
+                        <CheckBox fx:id="chkAnalysis" text="Analysis" selected="true"/>
+                        <CheckBox fx:id="chkDesign" text="Design" selected="true"/>
+                        <CheckBox fx:id="chkDevelopment" text="Development" selected="true"/>
+                        <CheckBox fx:id="chkTest" text="TEST" selected="true"/>
+                        <CheckBox fx:id="chkTAS" text="TAS" selected="true"/>
+                        <CheckBox fx:id="chkDocumentation" text="Documentation" selected="true"/>
+                        <CheckBox fx:id="chkDeployment" text="Deployment" selected="true"/>
+                    </HBox>
+                </VBox>
+
+                <HBox alignment="CENTER" style="-fx-padding: 8 0 0 0;">
+                    <Button text="Task 생성하기" onAction="#onCreateTasks"
+                            styleClass="primary-button"
+                            prefWidth="150" prefHeight="38"/>
+                </HBox>
+            </VBox>
+
+            <!-- 3. 실행 로그 -->
+            <VBox styleClass="section" spacing="10" VBox.vgrow="ALWAYS">
+                <Label text="실행 로그" styleClass="section-title"/>
+                <TextArea fx:id="txtLog" editable="false" wrapText="true"
+                          styleClass="log-area"
+                          prefHeight="120"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>

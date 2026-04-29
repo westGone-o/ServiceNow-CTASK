@@ -1,0 +1,9 @@
+com\servicenow\ctaskcreator\service\SettingsManager.class
+com\servicenow\ctaskcreator\controller\LoginController.class
+com\servicenow\ctaskcreator\controller\MainController.class
+com\servicenow\ctaskcreator\service\ExcelReader.class
+com\servicenow\ctaskcreator\service\GoogleSheetClient.class
+com\servicenow\ctaskcreator\Launcher.class
+com\servicenow\ctaskcreator\model\AppSettings.class
+com\servicenow\ctaskcreator\Main.class
+com\servicenow\ctaskcreator\service\ServiceNowClient.class
